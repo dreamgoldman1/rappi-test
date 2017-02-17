@@ -1,0 +1,43 @@
+gol_content_homepage:
+    path:     /
+    defaults: { _controller: GOLContentBundle:Producto:productos, order: 1 }
+    
+gol_content_productos:
+    path:     /productos/{order}
+    defaults: { _controller: GOLContentBundle:Producto:productos, order: 1 }
+    
+gol_content_productos_agotados:
+    path:     /productos-agotados/{order}
+    defaults: { _controller: GOLContentBundle:Producto:productosagotados, order: 1 }
+    
+gol_content_productos_mas_vendidos:
+    path:     /productos-mas-vendidos/{order}
+    defaults: { _controller: GOLContentBundle:Producto:productosmasvendidos, order: 1 }
+    
+gol_content_productos_categoria:
+    path:     /categoria/{categoryId}/{order}
+    defaults: { _controller: GOLContentBundle:Producto:productoscategory, categoryId: 1, order: 1 }
+    
+gol_content_producto_detalle:
+    path:     /producto-detalle/{productId}
+    defaults: { _controller: GOLContentBundle:Producto:productodetalle }
+
+gol_content_carrito_agregar:
+    path:     /agregar-carrito/{productId}
+    defaults: { _controller: GOLContentBundle:Carrito:agregarcarrito }
+    
+gol_content_carrito_quitar:
+    path:     /quitar-carrito/{productId}
+    defaults: { _controller: GOLContentBundle:Carrito:quitarcarrito }
+    
+gol_content_carrito_contar:
+    path:     /contar-carrito
+    defaults: { _controller: GOLContentBundle:Carrito:countcarrito }
+    
+gol_content_ver_carrito:
+    path:     /carrito
+    defaults: { _controller: GOLContentBundle:Carrito:vercarrito }
+    
+gol_content_eliminar_carrito:
+    path:     /eliminar-carrito
+    defaults: { _controller: GOLContentBundle:Carrito:eliminarcarrito }

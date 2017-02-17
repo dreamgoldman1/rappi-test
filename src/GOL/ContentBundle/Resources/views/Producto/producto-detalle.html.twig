@@ -1,0 +1,52 @@
+{% extends 'rappi.html.twig' %}
+
+{% block content %}
+    <div class="span9">
+        <ul class="breadcrumb">
+            <li><a href="{{ env }}">Inicio</a> <span class="divider">/</span></li>
+            <li class="active">Detalles del producto</li>
+        </ul>	
+        <div class="row">	  
+            <div id="gallery" class="span3">
+                <img src="{{ product.img }}" style="width:100%" alt="{{ product.name }}">
+                <div class="text-info">
+                    <h4>{% if product.best_seller %}Best Seller{% endif %}</h4>
+                </div>
+                <div>
+                    <h4 class="text-bold">
+                        {% for productCategory in product.categories %}
+                            {% for key, category in categories %}
+                                {% if category.categori_id == productCategory %}
+                                    {{ category.name | title }} {% if productCategory != product.categories|last %}-{% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </h4>
+                </div>
+            </div>
+            <div class="span6">
+                <h3>{{ product.name }}</h3>
+                <hr class="soft">
+                <form class="form-horizontal qtyFrm">
+                    <div class="control-group">
+                        <label class="control-label"><span>${{ product.price | number_format(0, ',', '.') }}</span></label>
+                        <h4 class="controls">
+                            <button type='button' class="btn btn-large {% if product.available %}btn-primary agregar-carrito{% else %}btn-error disabled{% endif %} pull-right"> Agregar <i class=" icon-shopping-cart"></i></button>
+                            <span class="hide product-id">{{ product.id }}</span>
+                        </h4>
+                    </div>
+                </form>
+
+                <hr class="soft">
+                {% if product.available %}<h4 class="text-success">Disponible</h4>{% else %}<h4 class="text-error">No Disponible</h4>{% endif %}
+                <hr class="soft clr">
+                <p>
+                    {{ product.description }}
+                </p>
+                <br class="clr">
+                <a href="#" name="detail"></a>
+                <hr class="soft">
+            </div>
+        </div>
+    </div>
+{% endblock %}

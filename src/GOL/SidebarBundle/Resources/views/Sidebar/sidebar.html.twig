@@ -1,0 +1,20 @@
+<!-- Sidebar ================================================== -->
+<div id="sidebar" class="span3">
+    <div class="well well-small">
+        <a id="myCart" href="{{ env }}carrito">
+            <img src="{{ asset('assets/themes/images/ico-cart.png') }}" alt="cart">
+            <span class="numItems">{{ numItems }}</span> Item(s) en el carrito <span class="badge badge-warning pull-right totalCarrito">${{ totalCarrito | number_format(0,',','.') }}</span>
+        </a>
+    </div>
+    <ul id="sideManu" class="nav nav-tabs nav-stacked">
+        {% for category in categories %}
+            <li class="">
+                <a href="{{ env }}categoria/{{ category.categori_id }}">{{ category.name | title }} [{{ attribute (qtyByCategory, category.categori_id) }}]</a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    {# Render Widget MasVendidos Controller #}
+    {{ render(controller('GOLSidebarBundle:MasVendidos:masvendidos')) }}
+</div>
+<!-- Sidebar end=============================================== -->

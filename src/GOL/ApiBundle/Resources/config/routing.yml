@@ -1,0 +1,7 @@
+gol_api_homepage:
+    path:     /api
+    defaults: { _controller: GOLApiBundle:Api:api }
+    
+gol_api_admin:
+    path:     /admin
+    defaults: { _controller: GOLApiBundle:Api:admin }

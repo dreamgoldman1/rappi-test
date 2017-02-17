@@ -1,0 +1,41 @@
+{% extends 'rappi.html.twig' %}
+
+{% block content %}
+    <div class="span9">
+        <ul class="breadcrumb">
+            <li><a href="{{ env }}">Inicio</a> <span class="divider">/</span></li>
+            <li class="active">Administrador</li>
+        </ul>
+        <h3>Administrador</h3>
+        {% if mens != '' %}
+            <div class="alert alert-{{ class}}">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ mens }}
+            </div>
+        {% endif %}
+        <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+            <div class="control-group input-group">
+                <label>Fuente de la información:</label>
+                <input type="radio" class="radio fuente" name="fuente" value="url"> URL <br/>
+                <input type="radio" class="radio fuente" name="fuente" value="file"> Archivo
+            </div>
+            <div class="control-group input-group group-url">
+                <hr class="soft">
+                <label>URL:</label>
+                <input type="text" class="" name="url"><br/>
+                <span class="text-small">Indique la URL de donde se tomará la información</span>
+            </div>
+            <div class="control-group input-group group-file">
+                <hr class="soft">
+                <label>Archivo:</label>
+                <input type="file" class="" name="file"><br/>
+                <span class="text-small">Seleccione el archivo que desea cargar con la información</span>
+            </div>
+            <div class="control-group input-group group-button">
+                <hr class="soft">
+                <button type="submit" name="actualizar" class="btn btn-large btn-primary">Actualizar</button>
+            </div>
+        </form>
+        
+    </div>
+{% endblock %}

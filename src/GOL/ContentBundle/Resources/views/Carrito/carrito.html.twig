@@ -1,0 +1,47 @@
+{% extends 'rappi.html.twig' %}
+
+{% block content %}
+    <div class="span9">
+        <ul class="breadcrumb">
+            <li><a href="{{ env }}">Inicio</a> <span class="divider">/</span></li>
+            <li class="active"> Carrito</li>
+        </ul>
+        <h3>  CARRITO [ <small>{{ numItems }} Item(s) </small>]<a href="{{ env }}" class="btn btn-large pull-right"><i class="icon-arrow-left"></i> Continuar comprando </a></h3>
+        <hr class="soft">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Descripción</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% set sumaTotal = 0 %}
+                {% for producto in productoData %}
+                <tr>
+                    <td> <img width="60" src="{{ producto.img }}" alt=""></td>
+                    <td>{{ producto.name }}</td>
+                    <td>
+                        <div class="input-append">
+                            <input class="span1" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="text" value="{% for productCarrito in productos %}{% if productCarrito.id == producto.id %}{{ productCarrito.qty }}{% endif %}{% endfor %}">
+                            <a class="btn btn-success" href="{{ env }}agregar-carrito/{{ producto.id }}"><i class="icon-check icon-white"></i></a>
+                            <a class="btn btn-danger" href="{{ env }}quitar-carrito/{{ producto.id }}"><i class="icon-remove icon-white"></i></a>
+                        </div>
+                    </td>
+                    <td>${{ producto.price | number_format(0, ',', '.') }}</td>
+                    <td>${% for productCarrito in productos %}{% if productCarrito.id == producto.id %}{% set sumaTotal = sumaTotal + (productCarrito.qty * producto.price) %}{{ (productCarrito.qty * producto.price) | number_format(0, ',', '.') }}{% endif %}{% endfor %}</td>
+                </tr>
+                {% endfor %}
+
+                <tr>
+                    <td colspan="4" style="text-align:right"><strong>TOTAL =</strong></td>
+                    <td class="label label-important" style="display:block"> <strong> ${{ sumaTotal | number_format(0, ',', '.') }} </strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="{{ env }}eliminar-carrito" class="btn btn-large btn-danger"><i class="icon-trash"></i> Vaciar carrito </a>
+    </div>
+{% endblock %}

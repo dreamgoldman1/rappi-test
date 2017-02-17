@@ -1,0 +1,18 @@
+<br/>
+<h4>Más vendidos</h4>
+{% for product in masVendidos %}
+<div class="thumbnail">
+    <img src="{{ product.img }}" alt="{{ product.name }}">
+    <div class="caption">
+        <h5>{{ product.name }}</h5>
+        <h4 style="text-align:center">
+            <a class="btn" href="{{ env }}producto-detalle/{{ product.id }}"> <i class="icon-zoom-in"></i></a>
+            {% if product.available %}
+                <button class="btn agregar-carrito">Agregar <i class="icon-shopping-cart"></i></button> 
+            {% endif %}
+            <span class="btn btn-primary">${{ product.price | number_format(0, ',', '.') }}</span>
+            <span class="hide product-id">{{ product.id }}</span>
+        </h4>
+    </div>
+</div>
+{% endfor %}

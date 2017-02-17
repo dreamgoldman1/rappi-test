@@ -1,0 +1,64 @@
+{% extends 'rappi.html.twig' %}
+
+{% block content %}
+    <div class="span9">
+        <ul class="breadcrumb">
+            <li><a href="{{ env }}">Inicio</a> <span class="divider">/</span></li>
+            {% if categories is defined %}
+                <li class="active">{% for category in categories %}{% if category.categori_id == categoryId %}{{ category.name | title }}{% endif %}{% endfor %}</li>
+            {% else %}
+                {% if agotados is defined %}<li class="active">{{ agotados }}</li>{% endif %}
+            {% endif %}
+        </ul>
+        <h3> {% if categories is defined %}{% for category in categories %}{% if category.categori_id == categoryId %}{{ category.name | title}}{% endif %}{% endfor %}{% else %}Productos {% if agotados is defined %}{{ agotados }}{% endif %}{% if masVendidos is defined %}{{ masVendidos }}{% endif %}{% endif %}
+            <small class="pull-right"> {{ totalProductos }} productos encontrados </small>
+        </h3>
+        <hr class="soft"/>
+        <p>
+            Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - that is why our goods are so popular and we have a great number of faithful customers all over the country.
+        </p>
+        <hr class="soft"/>
+        <form class="form-horizontal span6">
+            <div class="control-group">
+                <label class="control-label alignL">Organizar por </label>
+                <select id="filtros" name="filtros">
+                    <option value="predesc" {% if order is defined and order == 'predesc' %}Selected{% endif %}>Mayor Precio</option>
+                    <option value="preasc" {% if order is defined and order == 'preasc' %}Selected{% endif %}>Menor Precio</option>
+                    <option value="mendiez" {% if order is defined and order == 'mendiez' %}Selected{% endif %}>< $10.000</option>
+                    <option value="maytre" {% if order is defined and order == 'maytre' %}Selected{% endif %}>> $30.000</option>
+                    <option value="nomasc" {% if order is defined and order == 'nomasc' %}Selected{% endif %}>A - Z</option>
+                    <option value="nomdesc" {% if order is defined and order == 'nomdesc' %}Selected{% endif %}>Z - A</option>
+                </select>
+            </div>
+        </form>
+
+        <br class="clr"/>
+        <div class="tab-content">
+            <div class="tab-pane  active" id="blockView">
+                <ul class="thumbnails">
+                    {% for product in products %}
+                    <li class="span3">
+                        <div class="thumbnail">
+                            <img src="{{ product.img }}" alt=""/>
+                            <div class="caption">
+                                <h5>{{ product.name }}</h5>
+                                <p>{{ product.description }}</p>
+                                <h4 style="text-align:center">
+                                    <a class="btn" href="{{ env }}producto-detalle/{{ product.id }}"> <i class="icon-zoom-in"></i></a>
+                                    {% if product.available %}
+                                        <button class="btn agregar-carrito">Agregar <i class="icon-shopping-cart"></i></button>
+                                    {% endif %}
+                                    <span class="btn btn-primary">${{ product.price | number_format(0, ',', '.') }}</span>
+                                    <span class="hide product-id">{{ product.id }}</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <hr class="soft"/>
+            </div>
+        </div>
+        <br class="clr"/>
+    </div>
+{% endblock %}

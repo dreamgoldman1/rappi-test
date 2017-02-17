@@ -1,0 +1,32 @@
+<div id="header">
+    <div class="container">
+        <div id="welcomeLine" class="row">
+            <div class="span6">Bienvenido!<strong> Invitado</strong></div>
+            <div class="span6">
+                <div class="pull-right">
+                    <a href="{{ env }}carrito"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> [ <span class="numItems">{{ numItems }}</span> ] en el carrito </span> </a>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar ================================================== -->
+        <div id="logoArea" class="navbar">
+            <a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="navbar-inner">
+                <a class="brand" href="{{ env }}"><img src="{{ asset('assets/themes/images/logo.png') }}" alt="Bootsshop"/></a>
+                <form class="form-inline navbar-search" method="POST" action="{{ env }}productos" >
+                    <input type="text" name="producto" />
+                    <button type="submit" id="submitButton" class="btn btn-primary"><span class="icon-search"></span></button>
+                </form>
+                <ul id="topMenu" class="nav navbar-nav pull-right">
+                    <li class=""><a href="{{ env }}productos-mas-vendidos">Más Vendidos</a></li>
+                    <li class=""><a href="{{ env }}productos-agotados">Agotados</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End====================================================================== -->

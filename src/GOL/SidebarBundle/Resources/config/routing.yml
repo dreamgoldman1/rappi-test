@@ -1,0 +1,7 @@
+gol_sidebar_homepage:
+    path:     /sidebar
+    defaults: { _controller: GOLSidebarBundle:Sidebar:sidebar }
+    
+gol_sidebar_masvendidos:
+    path:     /masvendidos
+    defaults: { _controller: GOLSidebarBundle:MasVendidos:masvendidos }

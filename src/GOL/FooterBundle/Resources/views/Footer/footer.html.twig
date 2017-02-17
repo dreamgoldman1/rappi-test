@@ -1,0 +1,18 @@
+<!-- Footer ================================================================== -->
+<div  id="footerSection">
+    <div class="container">
+        <div class="row">
+            <div class="span3">
+                <h5>CATEGORIAS</h5>
+                {% for category in categories %}
+                    <a href="{{ env }}categoria/{{ category.categori_id }}">{{ category.name | title }}</a>
+                {% endfor %}
+            </div>
+            <div class="span3">
+                <h5>ADMINISTRADOR</h5>
+                    <a href="{{ env }}admin">Cambiar Json</a>
+            </div>
+        </div>
+        <p class="pull-right"><a href="http://cv.gilbertoorozco.net" target="_blank">Gilberto Orozco Linero</a> &copy; 2017</p>
+    </div><!-- Container End -->
+</div>

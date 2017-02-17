@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/var/www/rappi/src/GOL/ContentBundle/Resources/views/Producto/productos.html.twig</file>
+            <file>file:/var/www/rappi/src/GOL/ContentBundle/Resources/views/Carrito/carrito.html.twig</file>
+            <file>file:/var/www/rappi/src/GOL/HeaderBundle/Resources/views/Header/header.html.twig</file>
+            <file>file:/var/www/rappi/src/GOL/FooterBundle/Resources/views/Footer/footer.html.twig</file>
+            <file>file:/var/www/rappi/src/GOL/ApiBundle/Controller/ApiController.php</file>
+            <file>file:/var/www/rappi/src/GOL/SidebarBundle/Controller/SidebarController.php</file>
+            <file>file:/var/www/rappi/src/GOL/ContentBundle/Controller/CarritoController.php</file>
+            <file>file:/var/www/rappi/src/GOL/ContentBundle/Resources/views/Producto/producto-detalle.html.twig</file>
+            <file>file:/var/www/rappi/src/GOL/FooterBundle/Controller/FooterController.php</file>
+            <file>file:/var/www/rappi/src/GOL/SidebarBundle/Resources/views/MasVendidos/masvendidos.html.twig</file>
+            <file>file:/var/www/rappi/web/assets/js/orden.js</file>
+            <file>file:/var/www/rappi/src/GOL/HeaderBundle/Controller/HeaderController.php</file>
+            <file>file:/var/www/rappi/src/GOL/SidebarBundle/Resources/views/Sidebar/sidebar.html.twig</file>
+            <file>file:/var/www/rappi/src/GOL/SidebarBundle/Controller/MasVendidosController.php</file>
+            <file>file:/var/www/rappi/web/assets/js/carrito.js</file>
+            <file>file:/var/www/rappi/src/GOL/ContentBundle/Controller/ProductoController.php</file>
+            <file>file:/var/www/rappi/src/GOL/ContentBundle/Resources/config/routing.yml</file>
+        </group>
+    </open-files>
+</project-private>
